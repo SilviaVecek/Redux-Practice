@@ -1,14 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Helloworld from './Helloworld';
+import Form, { DisplayForm, Error, ConnectedForm }from './Helloworld';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 
 function App() {
   return (
     <div className="App">
-      <Helloworld />
+
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component = {Form} exact />
+          <Route path="/form" component = {ConnectedForm}/>
+          <Route component={Error}/>
+        </Switch>
+      </BrowserRouter>
+
     </div>
   );
 }
